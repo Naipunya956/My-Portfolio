@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-warm: #F5F1E8;
+    --ink-black: #111111;
+    --cobalt: #0047AB;
+    --pale-blue: #DCE7F5;
+    
+    --font-serif: 'Fraunces', 'Instrument Serif', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'Fira Code', 'Space Mono', Menlo, Monaco, Consolas, monospace;
+  }
+  
+  html {
+    font-family: var(--font-sans);
+    color: var(--ink-black);
+    background-color: var(--bg-warm);
+    scroll-behavior: smooth;
+  }
+}
+
+.font-serif {
+  font-family: 'Fraunces', 'Instrument Serif', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-mono {
+  font-family: 'Fira Code', 'Space Mono', Menlo, Monaco, Consolas, monospace;
+}
+
+/* Extremely subtle noise & blueprint background */
+.bg-blueprint-grain {
+  background-color: #F5F1E8;
+  background-image: 
+    radial-gradient(rgba(17, 17, 17, 0.05) 0.75px, transparent 0.75px),
+    linear-gradient(to right, rgba(17, 17, 17, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 17, 17, 0.035) 1px, transparent 1px);
+  background-size: 32px 32px, 128px 128px, 128px 128px;
+}
+
+/* Hairline technical blueprint borders */
+.border-hairline {
+  border-color: rgba(17, 17, 17, 0.14);
+}
+
+.border-hairline-cobalt {
+  border-color: #0047AB;
+}
+
+/* Technical crosshair & corner markers */
+.corner-crosshair {
+  position: relative;
+}
+.corner-crosshair::before,
+.corner-crosshair::after {
+  content: '+';
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1;
+  color: rgba(17, 17, 17, 0.35);
+  pointer-events: none;
+}
+.corner-crosshair::before {
+  top: -6px;
+  left: -5px;
+}
+.corner-crosshair::after {
+  bottom: -6px;
+  right: -5px;
+}
+
+/* Custom restrained scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #EAE5DB;
+}
+::-webkit-scrollbar-thumb {
+  background: #111111;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0047AB;
+}
+
+/* Editorial selection */
+::selection {
+  background-color: #DCE7F5;
+  color: #0047AB;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
