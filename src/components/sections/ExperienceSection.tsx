@@ -1,121 +1,137 @@
 import React from 'react';
-import { EXPERIENCE_ITEMS, PROGRAMS } from '../../data/portfolioData';
+import { Award } from 'lucide-react';
+import { EXPERIENCES, ACHIEVEMENTS } from '../../data/portfolioData';
+
+const BrandEmblem: React.FC<{ emblem: 'google' | 'doradao' | 'aws' }> = ({ emblem }) => {
+  if (emblem === 'google') {
+    return (
+      <svg viewBox="0 0 32 32" className="w-9 h-9" aria-hidden="true">
+        <rect x="2" y="2" width="28" height="28" fill="#D4F0FC" stroke="#1C1B29" strokeWidth="2" />
+        <circle cx="16" cy="16" r="8" fill="#2563EB" stroke="#1C1B29" strokeWidth="2" />
+        <rect x="16" y="14" width="9" height="4" fill="#F2B705" stroke="#1C1B29" strokeWidth="1.5" />
+      </svg>
+    );
+  }
+  if (emblem === 'doradao') {
+    return (
+      <svg viewBox="0 0 32 32" className="w-9 h-9" aria-hidden="true">
+        <rect x="2" y="2" width="28" height="28" fill="#DFEFD8" stroke="#1C1B29" strokeWidth="2" />
+        <polygon points="16,6 25,16 16,26 7,16" fill="#4B9A4A" stroke="#1C1B29" strokeWidth="2" />
+        <rect x="13" y="13" width="6" height="6" fill="#F2B705" stroke="#1C1B29" strokeWidth="1.5" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 32 32" className="w-9 h-9" aria-hidden="true">
+      <rect x="2" y="2" width="28" height="28" fill="#FDE4DC" stroke="#1C1B29" strokeWidth="2" />
+      <path d="M 8 18 L 16 9 L 24 18 Z" fill="#C93B43" stroke="#1C1B29" strokeWidth="2" />
+      <path d="M 7 22 Q 16 26 25 22" fill="none" stroke="#1C1B29" strokeWidth="2.5" />
+    </svg>
+  );
+};
 
 export const ExperienceSection: React.FC = () => {
-  const exp = EXPERIENCE_ITEMS[0];
-  const tags = ['AWS', 'CLOUD', 'AI / ML', 'DEVELOPER TOOLS', 'COMMUNITY', 'WORKSHOPS'];
-
   return (
     <section
       id="experience"
-      className="relative py-24 sm:py-32 px-6 sm:px-10 lg:px-16 border-b border-[#111111]/15"
+      className="world-colourable relative py-20 sm:py-28 px-4 sm:px-8 bg-[#FAF5E6] border-b-2 border-[#1C1B29]"
     >
-      <div className="max-w-7xl mx-auto space-y-24">
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 border-b border-[#111111]/10 pb-6">
-          <div className="flex items-center gap-3 font-mono text-xs text-[#111111]/60">
-            <span className="text-[#0047AB] font-bold">05/08</span>
-            <span>—</span>
-            <span className="uppercase tracking-widest text-[#111111]">LEADERSHIP &amp; COMMUNITY</span>
-          </div>
-          <span className="font-mono text-xs text-[#111111]/40">
-            EXPERIENCE &amp; INITIATIVES
-          </span>
-        </div>
-
-        {/* =========================================================================
-            EXPERIENCE: BEYOND THE CODE
-           ========================================================================= */}
-        <div className="space-y-12">
-          <div className="space-y-4 max-w-3xl">
-            <h2 className="font-serif font-black text-4xl sm:text-6xl md:text-7xl leading-tight text-[#111111] tracking-tight">
-              BEYOND THE CODE.
-            </h2>
-            <p className="font-sans text-lg sm:text-xl text-[#111111]/70 font-light">
-              Organizing student workshops, technical curriculum drafting, and engineering community operations.
-            </p>
-          </div>
-
-          {/* Editorial Information System Grid */}
-          <div className="p-8 sm:p-12 bg-[#F5F1E8] border border-[#111111]/25 space-y-8">
-            <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4 border-b border-[#111111]/15 pb-6">
-              <div className="space-y-1">
-                <span className="font-mono text-xs text-[#0047AB] font-bold tracking-wider uppercase block">
-                  {exp.organization}
-                </span>
-                <h3 className="font-serif font-black text-3xl sm:text-4xl text-[#111111]">
-                  {exp.role}
-                </h3>
-              </div>
-              <div className="font-mono text-xs text-[#111111]/60 md:text-right">
-                <span className="block font-bold text-[#111111]">{exp.period}</span>
-                <span>{exp.location}</span>
-              </div>
-            </div>
-
-            <p className="font-sans text-base sm:text-lg text-[#111111]/85 max-w-3xl leading-relaxed">
-              "{exp.description}"
-            </p>
-
-            {/* Editorial Focus Areas Information Matrix */}
-            <div className="pt-6 border-t border-[#111111]/15 space-y-3">
-              <span className="font-mono text-[10px] text-[#111111]/50 uppercase tracking-widest block font-bold">
-                OPERATIONAL DOMAINS &amp; CURRICULUM:
+      <div className="max-w-6xl mx-auto space-y-20">
+        {/* Part 1: Experience */}
+        <div className="space-y-10">
+          <div className="reveal-up flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-[#1C1B29] pb-6">
+            <div>
+              <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#2B6134]">
+                Community &amp; Leadership
               </span>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-                {tags.map((t) => (
-                  <div
-                    key={t}
-                    className="p-3 bg-white/60 border border-[#111111]/15 font-mono text-xs text-[#111111] font-bold text-center"
-                  >
-                    {t}
-                  </div>
-                ))}
-              </div>
+              <h2 className="mt-2 font-serif font-extrabold text-4xl sm:text-5xl text-[#1C1B29] tracking-tight">
+                Experience
+              </h2>
             </div>
-          </div>
-        </div>
-
-        {/* =========================================================================
-            PROGRAMS: PLACES I'VE BUILT
-           ========================================================================= */}
-        <div className="space-y-12 pt-8 border-t border-[#111111]/15">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
-            <h3 className="font-serif font-black text-3xl sm:text-5xl text-[#111111] tracking-tight">
-              PLACES I'VE BUILT.
-            </h3>
-            <span className="font-mono text-xs text-[#111111]/40 uppercase">
-              HACKATHONS &amp; FELLOWSHIPS
-            </span>
+            <p className="font-sans text-sm sm:text-base text-[#4D4C60]">
+              Student ambassador and community roles.
+            </p>
           </div>
 
-          {/* Connected Thin Architectural Line Sequence */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-            {PROGRAMS.map((prog, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            {EXPERIENCES.map((item) => (
               <div
-                key={prog.id}
-                className="p-6 bg-[#F5F1E8] border border-[#111111]/20 flex flex-col justify-between space-y-6 relative group hover:border-[#0047AB] transition-colors"
+                key={item.id}
+                className="reveal-up frame-world bg-[#FFF8E7] p-6 sm:p-7 flex flex-col justify-between space-y-6 hover:-translate-y-1 transition-transform duration-200"
               >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between text-xs font-mono text-[#111111]/40 border-b border-[#111111]/10 pb-2">
-                    <span className="text-[#0047AB] font-bold">0{idx + 1}</span>
-                    <span className="uppercase">{prog.category}</span>
-                  </div>
-
-                  <h4 className="font-serif font-bold text-xl text-[#111111] group-hover:text-[#0047AB] transition-colors leading-snug">
-                    {prog.name}
-                  </h4>
-
-                  <p className="font-sans text-xs text-[#111111]/75 leading-relaxed">
-                    {prog.description}
-                  </p>
+                <div className="flex items-start justify-between gap-4">
+                  <BrandEmblem emblem={item.emblem} />
+                  {item.period && (
+                    <span className="font-mono text-xs font-bold text-[#4D4C60]">
+                      {item.period}
+                    </span>
+                  )}
                 </div>
 
-                <div className="pt-3 border-t border-[#111111]/10 font-mono text-[10px] uppercase text-[#111111]/50 tracking-wider">
-                  [{prog.badgeText}]
+                <div className="space-y-2">
+                  <span
+                    className="font-mono text-xs font-bold tracking-widest block"
+                    style={{ color: item.brandColor }}
+                  >
+                    {item.org}
+                  </span>
+                  <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#1C1B29] leading-snug">
+                    {item.role}
+                  </h3>
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Part 2: Achievements */}
+        <div className="space-y-10">
+          <div className="reveal-up flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-[#1C1B29] pb-6">
+            <div>
+              <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#C93B43]">
+                Milestones &amp; Recognition
+              </span>
+              <h2 className="mt-2 font-serif font-extrabold text-3xl sm:text-4xl text-[#1C1B29] tracking-tight">
+                Achievements
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            {ACHIEVEMENTS.map((ach) => (
+              <div
+                key={ach.id}
+                className="reveal-up lg:col-span-7 frame-world bg-[#FFF8E7] p-6 sm:p-8 flex items-start gap-5"
+              >
+                <div className="w-12 h-12 shrink-0 bg-[#F2B705] border-2 border-[#1C1B29] flex items-center justify-center">
+                  <Award size={22} className="text-[#1C1B29]" />
+                </div>
+
+                <div className="space-y-2">
+                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#C93B43]">
+                    {ach.event}
+                  </span>
+                  <h3 className="font-serif font-bold text-2xl text-[#1C1B29]">
+                    {ach.recognition}
+                  </h3>
+                  {ach.project && (
+                    <p className="font-sans text-sm sm:text-base text-[#4D4C60]">
+                      For <span className="font-semibold text-[#1C1B29]">{ach.project}</span>
+                    </p>
+                  )}
+                </div>
+              </div>
+            ))}
+
+            {/* Intentional open slot for upcoming certifications & awards */}
+            <div className="reveal-up lg:col-span-5 border-2 border-dashed border-[#1C1B29]/35 bg-[#FFF8E7]/60 p-6 sm:p-8 flex flex-col justify-center">
+              <span className="font-mono text-xs font-bold text-[#4D4C60] uppercase tracking-wider">
+                Certifications &amp; Future Honors
+              </span>
+              <p className="mt-2 font-sans text-sm text-[#4D4C60] leading-relaxed">
+                Reserved for upcoming certifications, hackathons, and recognitions.
+              </p>
+            </div>
           </div>
         </div>
       </div>

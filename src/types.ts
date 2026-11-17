@@ -1,62 +1,28 @@
-export interface Project {
+export interface PublicationItem {
   id: string;
+  number: string;
   title: string;
-  tagline: string;
-  description: string;
-  highlights: string[];
-  tech: string[];
-  githubUrl?: string;
-  demoUrl?: string;
-  status: 'Completed' | 'Active' | 'Experiment';
-  accentColor: string;
-  category: 'AI / Full Stack' | 'Game Dev / Python' | 'Developer Tools' | 'Web Platform';
-}
-
-export interface ResearchItem {
-  id: string;
-  title: string;
-  type: 'Research Paper' | 'Technical Writing & Reflection' | 'Architectural Note';
-  doi?: string;
-  doiUrl?: string;
   date: string;
+  platform: 'Zenodo';
+  doi: string;
+  doiUrl: string;
   summary: string;
-  keyInsights: string[];
-  fullNote?: string;
-  tags: string[];
+  coverVariant: 'context' | 'constraints' | 'reflection';
+  accentColor: string;
 }
 
-export interface ExperienceItem {
+export interface ExperienceEntry {
   id: string;
+  org: string;
   role: string;
-  organization: string;
-  period: string;
-  location: string;
-  description: string;
-  keyContributions: string[];
-  focusAreas: string[];
+  period?: string;
+  brandColor: string;
+  emblem: 'google' | 'doradao' | 'aws';
 }
 
-export interface ProgramItem {
+export interface AchievementEntry {
   id: string;
-  name: string;
-  category: 'Hackathon' | 'Fellowship' | 'Global Initiative';
-  description: string;
-  badgeText: string;
-  accent: string;
-}
-
-export interface SkillCategory {
-  title: string;
-  iconName: string;
-  skills: string[];
-  color: string;
-}
-
-export interface JourneyMilestone {
-  year: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  type: 'hackathon' | 'fellowship' | 'leadership' | 'milestone';
-  icon: string;
+  event: string;
+  recognition: string;
+  project?: string;
 }
